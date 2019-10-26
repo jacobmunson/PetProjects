@@ -5,6 +5,7 @@
 
 percent_change = function(first_value, second_value){
   pct_change = ((second_value - first_value)/first_value) * 100
+  print(paste0(round(pct_change,2), "% change."))
   return(pct_change)
 }
 
