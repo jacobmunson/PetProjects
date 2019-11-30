@@ -67,6 +67,10 @@ lines(transition_probabilities[,"NE_NE"], col = 'grey'); #abline(v = seq(0,days,
 lines(transition_probabilities[,"NE_E"], col = 'purple'); #abline(v = seq(0,days, by = days/4), col = 'red')
 #abline(v = seq(0,days*4,days/4), col = 'red')
 
+## Predictions? 
+# Based on last step transition probability...
+# Based on some weighted average(?) of last n transition probability matrices? 
+# Something else? 
 
 ### ignore below - make for comparing a "convergence" of timeframes 
 
