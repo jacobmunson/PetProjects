@@ -20,7 +20,6 @@ lines(density(abs(rnorm(n = 1e5, mean = 0, sd = sqrt(2))), from = 0), lty = 2, c
 abline(v = dnorm(x = 0.05, mean = 0, sd = sqrt(2)), col = "orange")
 abline(v = qnorm(p = 0.05, mean = 0, sd = sqrt(2), lower.tail = FALSE), col = "pink")
 
-
 val = 0.05
 
 abline(h = dnorm(x = 0.05, mean = 0, sd = sqrt(2)), col = "purple")
