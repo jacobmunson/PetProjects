@@ -72,6 +72,13 @@ lines(transition_probabilities[,"NE_E"], col = 'purple'); #abline(v = seq(0,days
 # Based on some weighted average(?) of last n transition probability matrices? 
 # Something else? 
 
+
+
+#### follow-up thoughts on 12/8/19
+# found some papers on additive binary markov chains, might be of interest here
+# also, extending beyond the event/no event framework, could tie this into an anomoly detection scenario
+
+
 ### ignore below - make for comparing a "convergence" of timeframes 
 
 #A = transition_probabilities - 1440
