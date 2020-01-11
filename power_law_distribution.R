@@ -1,5 +1,6 @@
 ######################################
 ### Power Law Distribution Example ###
+# adaptation of code produced in CSCI-550 - Data Mining 
 ######################################
 
 power_law_dist = function(a, k, x){return(a*x^k)}
