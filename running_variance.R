@@ -1,4 +1,12 @@
 # Running Variance Estimate
+
+# Sequence of data: x1, x2, x3, ..., xN
+# Initialize: M1 = x1; s1 = 0
+## for k in {2:N}
+## Mk = M_{k-1} + (xk - M_{k-1})/k
+## sk = s_{k-1} + (xk - M_{k-1})*(xk - M_{k})
+# For k^th estimate of variance: s^2 = sk/(k-1)
+
 x = c(-2,3,1,-5,-1,4,1)
 
 m = c(); # empty vector
