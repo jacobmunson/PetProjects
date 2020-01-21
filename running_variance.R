@@ -1,4 +1,5 @@
 # Running Variance Estimate
+# credit to: https://www.johndcook.com/blog/standard_deviation/
 
 # Sequence of data: x1, x2, x3, ..., xN
 # Initialize: M1 = x1; s1 = 0
