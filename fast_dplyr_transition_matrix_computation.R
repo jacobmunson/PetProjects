@@ -23,7 +23,7 @@ D = data.frame(user = d2, state = d1, stringsAsFactors = F)
 D = as_tibble(D)
 
 ## Looking at it
-head(Q)
+head(D)
 
 ## Framing up a transition matrix
 # possible transitions
@@ -51,14 +51,19 @@ transition_matrix = matrix(data = 0,
                            dimnames = list(states, states))
 
 ## Fill in Transition Matrix
+# much cheaper to do than iteration through original matrix
+# only 25 lines here instead of a million
 for(i in 1:nrow(actual_movements)){
   transition_matrix[actual_movements[i,"state"], actual_movements[i,"next_state"]] = actual_movements[i,"Freq"]
 }
 
 transition_matrix
+
+## Normalize
 transition_matrix = transition_matrix/rowSums(transition_matrix)
 round(transition_matrix, 3)
 
+## Stationary Distribution
 transition_matrix = transition_matrix %*% transition_matrix %*% 
                     transition_matrix %*% transition_matrix %*% 
                     transition_matrix %*% transition_matrix %*% 
@@ -77,7 +82,6 @@ transition_matrix = transition_matrix %*% transition_matrix %*%
 
 ## Visual Examination
 round(transition_matrix, 3)
-
 
 ## Probability of Next Step
 initial_vector = c(0,0,0,1,0)
