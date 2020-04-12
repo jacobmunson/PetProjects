@@ -46,7 +46,7 @@ n*theta_dot - (n-1)*mean(theta_i) # changes for weighted-mean
 # this is new theta_jack = mean(theta_i) : replaces theta_dot in CI? I think
 
 
-se_jack_weighted = sqrt(((n-1)/n)*(sum((theta_i - theta_dot     )^2)))
+se_jack_weighted = sqrt(((n-1)/n)*(sum((theta_dot - theta_i       )^2)))
 se_jack_weighted # 0.4347
 se_jack_unweighted = sqrt(((n-1)/n)*(sum((mean(r) - jk$jack.values)^2)))
 se_jack_unweighted # 0.5099
@@ -57,5 +57,8 @@ multi = qt(p = 0.975, df = n-1)
 
 c(mean(r) - multi*se_jack_unweighted, mean(r), mean(r) + multi*se_jack_unweighted)
 c(theta_dot - multi*se_jack_weighted, theta_dot, theta_dot + multi*se_jack_weighted)
+
+mean_val = (theta_dot - bias) # bias corrected value
+c(mean_val - multi*se_jack_weighted, mean_val, mean_val + multi*se_jack_weighted)
 # what does this actually mean? CI for prediction? For... user? For what? 
 
