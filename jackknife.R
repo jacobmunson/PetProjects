@@ -29,12 +29,22 @@ for(i in 1:nrow(df_loc)){ # iterate through df_loc and grab the n-1 relevant val
   print(df_x[df_loc[i,],])
   print(theta(df_x[df_loc[i,],]))
   theta_i[i] = theta(df_x[df_loc[i,],])
-}
+} # probably re-write in C++ for large scale use
 
 theta_dot # weighted mean estimate
 theta_i # jk estimates of weighted mean
 mean(theta_i) # jk estimate of weighted mean 
 n = nrow(df_x)
+
+### Bias ### 
+bias = (n - 1)*(mean(jk$jack.values) - mean(r)) # 0
+mean(r) - bias # doesn't change since mean is unbiased estimator
+
+bias = (n - 1)*(mean(theta_i) - theta_dot) # 0
+(theta_dot - bias) # changes for weighted-mean
+n*theta_dot - (n-1)*mean(theta_i) # changes for weighted-mean
+# this is new theta_jack = mean(theta_i) : replaces theta_dot in CI? I think
+
 
 se_jack_weighted = sqrt(((n-1)/n)*(sum((theta_i - theta_dot     )^2)))
 se_jack_weighted # 0.4347
